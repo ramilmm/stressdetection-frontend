@@ -26,7 +26,21 @@
 
     <section class="content">
       <div class="row">
-        <div class="col-lg-4 col-xs-6">
+        <div class="col-lg-3 col-xs-6">
+          
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3><span class="start_btn">Start</span></h3>
+
+              <p>Start test measurement</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-play"></i>
+            </div>
+            <span class="">&#4448</span>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
           
           <div class="small-box bg-red">
             <div class="inner">
@@ -41,7 +55,7 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-4 col-xs-6">
+        <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
@@ -56,7 +70,7 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-4 col-xs-6">
+        <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
@@ -80,41 +94,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>Название</th>
-                  <th>Цена</th>
-                  <th>Статистика</th>
-                  <th>Охват</th>
-                  <th>Администратор</th>
-                  <th>Действие</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr class="row${app.id}">
-                  <td>Kalemba.</td>                      
-                  <td>
-                      180
-                  </td>
-                  <td>
-                      vk.com/stats112512512
-                  </td>
-                  <td>
-                      20k
-                  </td>
-                  <td>
-                      vk.com/kalemb
-                  </td>
-                  <td>
-                      <div class="buttons">
-                        <a href="#"  class="accept acceptSpisok" data-id="${app.id}">Принять</a> <br/>
-                        <a href="#"  class="delete deleteSpisok" data-id="${app.id}">Отклонить</a>
-                      </div>
-                  </td>
-              </tr>
-                </tbody>
-              </table>
+              <HeartRateStat/>
             </div>
             <!-- /.box-body -->
           </div>
@@ -229,30 +209,15 @@
 </template>
 
 <script>
+import HeartRateStat from './HeartRateStat.vue'
 
 export default {
-  name: 'hello',
+  name: 'Dashboard',
+  components: {HeartRateStat},
   data () {
     return {
       loading: false,
-      posts: [],
-      allPosts: [],
-      clicked: true,
-      filterChanged: true,
-      publics_id: [
-        {name: 'Moréna.🍃',id:'71190418'},
-        {name: 'Sabr.',id:'37466869'},
-        {name: '365 new days',id:'52870150'},
-        {name: 'mimishka...🌸',id:'41032556'},
-      ],
-      publics_info : [],
-      mypublic_id: '',
-      filterMyPublic: false,
-      perPage: 40,
-      offset: 0,
-      currentPage: 1,
-      last_active: '',
-      showModal: false
+      showModal: false,
     }
   },
   methods: {
@@ -260,18 +225,8 @@ export default {
      
 
     },
-    removeHighlight() {
-      var elements = document.getElementsByClassName('filter_item');
-      for (var i = 0; i < elements.length; i++) {
-        elements[i].classList.remove('active_item');
-      }
-    },
-    showGif(url){
-      event.target.setAttribute('src', url);
-    },
   },
   created() {
-    
   },
 }
 </script>
@@ -293,6 +248,9 @@ body {
   font-weight: 400;
   overflow-x: hidden;
   overflow-y: auto;
+}
+.start_btn {
+  cursor: pointer;
 }
 .logoText {
   padding-top: 30%;

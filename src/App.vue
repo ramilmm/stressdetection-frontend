@@ -4,12 +4,12 @@
 
 <script>
 import Dashboard from './components/Dashboard'
-import Sabr from './components/Sabr.vue'
+import GSR from './components/GSR.vue'
 
 export default {
   name: 'app',
   components: {
-    Dashboard, Sabr
+    Dashboard, GSR
   }
 }
 </script>
