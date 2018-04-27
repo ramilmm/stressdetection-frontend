@@ -1,7 +1,7 @@
 {
-  "name": "vue-vkapi",
+  "name": "stressdetection",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "A frontend part of StressDetection system.",
   "author": "ramilmm <ramilmmk@gmail.com>",
   "private": true,
   "scripts": {
