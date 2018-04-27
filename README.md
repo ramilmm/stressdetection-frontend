@@ -1,6 +1,6 @@
 # StressDetection-frontend
 
-> A frontend part of StressDetection system.
+> A frontend part of StressDetection system
 
 ## Build Setup
 
