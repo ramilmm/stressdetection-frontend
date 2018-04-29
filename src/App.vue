@@ -4,12 +4,14 @@
 
 <script>
 import Dashboard from './components/Dashboard'
-import GSR from './components/GSR.vue'
+import GSRChart from './components/charts/GSRChart.vue'
+import HRChart from './components/charts/HRChart.vue'
+import StressChart from './components/charts/StressChart.vue'
 
 export default {
   name: 'app',
   components: {
-    Dashboard, GSR
+    Dashboard, GSRChart, HRChart, StressChart
   }
 }
 </script>

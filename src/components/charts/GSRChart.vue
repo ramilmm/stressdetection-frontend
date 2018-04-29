@@ -1,27 +1,24 @@
 <template>
   <div>
-    <div class="container-fluid">
-      <div class="row text-center">
-        <div class="col-xs-12 col-lg-4 col-lg-offset-4">
+    <!-- Panel div start -->
+    <div class="panel panel-primary">
+      <div class="panel-body">
+        <!-- Chart container -->
+        <div id="chart_container">
+          <div id="y_axis"></div>
+          <div id="demo_chart" ref="panel"></div>
         </div>
-
-        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
-
-          <!-- Panel div start -->
-          <div class="panel panel-primary">
-            <div class="panel-body">
-              <!-- Chart container -->
-              <div id="chart_container" >
-                <div id="y_axis"></div>
-                <div id="demo_chart" ref="panel"></div>
-              </div>
-              <!-- End of chart container -->
-            </div>
-          </div>
-          <!-- Panel div end -->
-        </div>
+        <!-- End of chart container -->
+      </div>
+      <div class="panel-footer">
+        <p>
+          <small>
+            <span style="color: #000"> Galvanic Skin Reaction </span>
+          </small>
+        </p>
       </div>
     </div>
+    <!-- Panel div end -->
   </div>
 </template>
 
@@ -37,7 +34,7 @@
         messageSeries: [],
         updateInterval: 20,
         dvColors: {
-          v1: "#cb503a",
+          v1: "#cbc345",
         }
       }
     },
@@ -49,11 +46,11 @@
       initChart() {
         magnitudeChart = new Rickshaw.Graph({
           element: document.querySelector("#demo_chart"),
-          width: "600",
+          width: "900",
           height: "250",
           renderer: "line",
-          min: 40,
-          max: 200,
+          min: 0,
+          max: 60,
           series: new Rickshaw.Series.FixedDuration([{
             name: 'v1',
             color: '#EC644B'
@@ -68,7 +65,7 @@
         var y_axis = new Rickshaw.Graph.Axis.Y({
           graph: magnitudeChart,
           orientation: 'left',
-          tickFormat: function(y) {
+          tickFormat: function (y) {
             return y.toFixed(1);
           },
           ticks: 5,
@@ -100,15 +97,15 @@
       },
       fetchData() {
         let _this = this;
-        this.$http.get('http://localhost:8081/data')
-          .then(function(response) {
+        this.$http.get('http://localhost:8081/data/gsr')
+          .then(function (response) {
             _this.insertData(response.data);
           });
       },
     },
     created() {
       let _this = this;
-      setInterval(function() {
+      setInterval(function () {
         _this.fetchData();
       }, 300);
     }
@@ -133,18 +130,5 @@
     top: 0;
     bottom: 0;
     width: 40px;
-  }
-
-  .footy {
-    position: relative;
-    width: 100%;
-    margin-top: 50px;
-    height: 60px;
-    opacity: 0.2;
-  }
-
-  .glyphicon {
-    color: #8E44AD;
-    font-weight: bold;
   }
 </style>

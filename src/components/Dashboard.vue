@@ -95,7 +95,7 @@
             <!-- /.box-header -->
             <div class="box-body">
               <!--<HeartRateStat/>-->
-              <RickshawChart/>
+              <HRChart/>
             </div>
             <!-- /.box-body -->
           </div>
@@ -111,37 +111,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>Название</th>
-                  <th>Подписчики</th>
-                  <th>Цена</th>
-                  <th>Администратор</th>
-                  <th>Действие</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr class="row${app.id}">
-                  <td>Kalemba.</td>
-                  <td>
-                      240000
-                  </td>
-                  <td>
-                      180
-                  </td>
-                  <td>
-                      vk.com/kalemb
-                  </td>
-                  <td>
-                      <div class="buttons">
-                        <a href="#"  class="accept acceptInst" data-id="${inst.id}">Принять</a> <br/>
-                        <a href="#"  class="delete deleteInst" data-id="${inst.id}">Отклонить</a>
-                    </div>
-                  </td>
-              </tr>
-                </tbody>
-              </table>
+              <!--<GSRChart/>-->
             </div>
             <!-- /.box-body -->
           </div>
@@ -153,37 +123,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>Название</th>
-                  <th>Профиль вк</th>
-                  <th>Цена</th>
-                  <th>Комментарий</th>
-                  <th>Действие</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr class="row${app.id}">
-                  <td>Kalemba.</td>
-                  <td>
-                      vk.com/kalemb
-                  </td>
-                  <td>
-                      180
-                  </td>
-                  <td>
-                      comment
-                  </td>
-                  <td>
-                      <div class="buttons">
-                        <a class="accept acceptAppAdv" data-id="${adv.id}">Принять</a> <br/>
-                        <a class="delete deleteAppAdv" data-id="${adv.id}">Отклонить</a>
-                    </div>
-                  </td>
-              </tr>
-                </tbody>
-              </table>
+              <!--<StressChart/>-->
             </div>
             <!-- /.box-body -->
           </div>
@@ -210,12 +150,13 @@
 </template>
 
 <script>
-import HeartRateStat from './HeartRateStat.vue'
-import RickshawChart from './RickshawChart.vue'
+import HRChart from './charts/HRChart.vue'
+import GSRChart from './charts/GSRChart.vue'
+import StressChart from './charts/StressChart.vue'
 
 export default {
   name: 'Dashboard',
-  components: {HeartRateStat,RickshawChart},
+  components: {HRChart,GSRChart,StressChart},
   data () {
     return {
       loading: false,

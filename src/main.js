@@ -3,7 +3,6 @@
 import Vue from 'vue'
 import App from './App'
 import Dashboard from './components/Dashboard.vue'
-import HR from './components/HR.vue'
 import VueResource from 'vue-resource'
 import VueRouter from 'vue-router'
 
