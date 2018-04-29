@@ -9,11 +9,11 @@
         </div>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
-      
+
     </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
- 
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -27,7 +27,7 @@
     <section class="content">
       <div class="row">
         <div class="col-lg-3 col-xs-6">
-          
+
           <div class="small-box bg-green">
             <div class="inner">
               <h3><span class="start_btn">Start</span></h3>
@@ -41,7 +41,7 @@
           </div>
         </div>
         <div class="col-lg-3 col-xs-6">
-          
+
           <div class="small-box bg-red">
             <div class="inner">
               <h3>89</h3>
@@ -86,7 +86,7 @@
         </div>
         <!-- ./col -->
   <div class="col-xs-12">
-            
+
 
           <div class="box">
             <div class="box-header">
@@ -94,15 +94,16 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <HeartRateStat/>
+              <!--<HeartRateStat/>-->
+              <RickshawChart/>
             </div>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
           </div>
         </div>
-        
-            
+
+
 
           <div class="box">
             <div class="box-header">
@@ -122,10 +123,10 @@
                 </thead>
                 <tbody>
                 <tr class="row${app.id}">
-                  <td>Kalemba.</td> 
+                  <td>Kalemba.</td>
                   <td>
                       240000
-                  </td>                     
+                  </td>
                   <td>
                       180
                   </td>
@@ -145,7 +146,7 @@
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
-          
+
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Заявки в список объявлений</h3>
@@ -164,10 +165,10 @@
                 </thead>
                 <tbody>
                 <tr class="row${app.id}">
-                  <td>Kalemba.</td> 
+                  <td>Kalemba.</td>
                   <td>
                       vk.com/kalemb
-                  </td>                     
+                  </td>
                   <td>
                       180
                   </td>
@@ -187,7 +188,7 @@
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
-    
+
     </section>
     <!-- /.content -->
   </div>
@@ -210,10 +211,11 @@
 
 <script>
 import HeartRateStat from './HeartRateStat.vue'
+import RickshawChart from './RickshawChart.vue'
 
 export default {
   name: 'Dashboard',
-  components: {HeartRateStat},
+  components: {HeartRateStat,RickshawChart},
   data () {
     return {
       loading: false,
@@ -222,7 +224,7 @@ export default {
   },
   methods: {
     fetchPosts(page) {
-     
+
 
     },
   },
