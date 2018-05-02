@@ -9,18 +9,11 @@
           <div class="panel panel-primary">
             <div class="panel-body">
               <!-- Chart container -->
-              <div id="chart_container" >
-                <div id="y_axis"></div>
-                <div id="demo_chart" ref="panel"></div>
+              <div id="chart_container2" >
+                <div id="y_axis2"></div>
+                <div id="demo_chart2" ref="panel"></div>
               </div>
               <!-- End of chart container -->
-            </div>
-            <div class="panel-footer">
-              <p>
-                <small>
-                  <span style="color: #000"> Stress Level </span>
-                </small>
-              </p>
             </div>
           </div>
           <!-- Panel div end -->
@@ -53,7 +46,7 @@
       /* Rickshaw.js initialization */
       initChart() {
         magnitudeChart = new Rickshaw.Graph({
-          element: document.querySelector("#demo_chart"),
+          element: document.querySelector("#demo_chart2"),
           width: "900",
           height: "250",
           renderer: "line",
@@ -77,14 +70,14 @@
             return y.toFixed(1);
           },
           ticks: 5,
-          element: document.getElementById('y_axis'),
+          element: document.getElementById('y_axis2'),
         });
 
         this.resizeChart(magnitudeChart);
 
-        window.addEventListener('resize', () => {
-          this.resizeChart(magnitudeChart)
-        });
+        //window.addEventListener('resize', () => {
+        //  this.resizeChart(magnitudeChart)
+        //});
 
       },
       resizeChart(chart) {
@@ -108,6 +101,7 @@
         this.$http.get('http://localhost:8081/data/stress')
           .then(function(response) {
             _this.insertData(response.data);
+            _this.$emit('update-stress', response.data)
           });
       },
     },
@@ -121,19 +115,19 @@
 </script>
 
 <style scoped>
-  #chart_container {
+  #chart_container2 {
     padding-right: 40px;
     padding-bottom: 20px;
     margin-top: 20px;
     position: relative;
   }
 
-  #demo_chart {
+  #demo_chart2 {
     position: relative;
     left: 40px;
   }
 
-  #y_axis {
+  #y_axis2 {
     position: absolute;
     top: 0;
     bottom: 0;

@@ -10,13 +10,6 @@
         </div>
         <!-- End of chart container -->
       </div>
-      <div class="panel-footer">
-        <p>
-          <small>
-            <span style="color: #000"> Heart Rate </span>
-          </small>
-        </p>
-      </div>
     </div>
     <!-- Panel div end -->
   </div>
@@ -74,9 +67,9 @@
 
         this.resizeChart(magnitudeChart);
 
-        window.addEventListener('resize', () => {
-          this.resizeChart(magnitudeChart)
-        });
+        //window.addEventListener('resize', () => {
+        //  this.resizeChart(magnitudeChart)
+        //});
 
       },
       resizeChart(chart) {
@@ -100,6 +93,7 @@
         this.$http.get('http://localhost:8081/data/hr')
           .then(function (response) {
             _this.insertData(response.data);
+            _this.$emit('update-hr', response.data);
           });
       },
     },

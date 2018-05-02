@@ -44,7 +44,7 @@
 
           <div class="small-box bg-red">
             <div class="inner">
-              <h3>89</h3>
+              <h3>{{ HRValue }}</h3>
 
               <p>Heart Rate</p>
             </div>
@@ -59,7 +59,7 @@
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>14</h3>
+              <h3>{{ GSRValue }}</h3>
 
               <p>Galvanic Skin Reaction</p>
             </div>
@@ -74,7 +74,7 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>0</h3>
+              <h3>{{ StressLevelValue }}</h3>
 
               <p>Stress Level</p>
             </div>
@@ -90,12 +90,12 @@
 
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Заявки в список пабликов</h3>
+              <h3 class="box-title">Heart Rate</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
+                <HRChart @update-hr="updateHRValue"></HRChart>
               <!--<HeartRateStat/>-->
-              <HRChart/>
             </div>
             <!-- /.box-body -->
           </div>
@@ -107,11 +107,11 @@
 
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Заявки в список instagram</h3>
+              <h3 class="box-title">Galvanic Skin Reaction</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <!--<GSRChart/>-->
+                <GSRChart @update-gsr="updateGSRValue"/>
             </div>
             <!-- /.box-body -->
           </div>
@@ -119,11 +119,11 @@
 
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Заявки в список объявлений</h3>
+              <h3 class="box-title">Stress Level</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <!--<StressChart/>-->
+                <StressChart @update-stress="updateStressLevelValue"/>
             </div>
             <!-- /.box-body -->
           </div>
@@ -135,10 +135,9 @@
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.3.8
+      <b>2018</b>
     </div>
-    <strong>Copyright &copy; 2016 <a href="http://almsaeedstudio.com">Veusdas</a>.</strong> All rights
-    reserved.
+    <strong>Created by Ramil Makhmutov</strong>
   </footer>
 
   <!-- Add the sidebar's background. This div must be placed
@@ -161,13 +160,22 @@ export default {
     return {
       loading: false,
       showModal: false,
+      HRValue: 0,
+      GSRValue: 0,
+      StressLevelValue: 0,
     }
   },
   methods: {
-    fetchPosts(page) {
-
-
+    updateHRValue(value) {
+        console.log(value);
+        this.HRValue = value;
     },
+    updateGSRValue(value) {
+        this.GSRValue = value;
+    },
+    updateStressLevelValue(value) {
+        this.StressLevelValue = value;
+    }
   },
   created() {
   },
