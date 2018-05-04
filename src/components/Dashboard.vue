@@ -72,6 +72,7 @@
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
+          <div v-bind:class="StressClass">
           <div class="small-box bg-aqua">
             <div class="inner">
               <h3>{{ StressLevelValue }}</h3>
@@ -81,7 +82,8 @@
             <div class="icon">
               <i class="ion ion-flash"></i>
             </div>
-             <span class="">&#4448</span>
+            <span class="">&#4448</span>
+          </div>
           </div>
         </div>
         <!-- ./col -->
@@ -163,18 +165,38 @@ export default {
       HRValue: 0,
       GSRValue: 0,
       StressLevelValue: 0,
+      StressClass: null,
     }
   },
   methods: {
     updateHRValue(value) {
-        console.log(value);
-        this.HRValue = value;
+      this.HRValue = value;
     },
     updateGSRValue(value) {
-        this.GSRValue = value;
+      this.GSRValue = value;
     },
     updateStressLevelValue(value) {
-        this.StressLevelValue = value;
+      this.StressLevelValue = value;
+      switch (value) {
+        case 0:
+          this.StressClass = "zerolvl";
+          break;
+        case 1:
+          this.StressClass = "firstlvl";
+          break;
+        case 2:
+          this.StressClass = "secondlvl";
+          break;
+        case 3:
+          this.StressClass = "thirdlvl";
+          break;
+        case 4:
+          this.StressClass = "fourthlvl";
+          break;
+        case 5:
+          this.StressClass = "fifthlvl";
+          break;
+      }
     }
   },
   created() {
@@ -200,6 +222,32 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
 }
+
+.zerolvl {
+}
+.firstlvl {
+}
+.secondlvl {
+  -moz-box-shadow:0 0 10px #E5B057;
+  -webkit-box-shadow:0 0 10px #E5B057;
+  box-shadow:0 0 10px #E5B057;
+}
+.thirdlvl {
+  -moz-box-shadow:0 0 20px #F9A210;
+  -webkit-box-shadow:0 0 20px #F9A210;
+  box-shadow:0 0 20px #F9A210;
+}
+.fourthlvl {
+  -moz-box-shadow:0 0 30px #F96F10;
+  -webkit-box-shadow:0 0 30px #F96F10;
+  box-shadow:0 0 30px #F96F10;
+}
+.fifthlvl {
+  -moz-box-shadow:0 0 40px #f94211;
+  -webkit-box-shadow:0 0 40px #f94211;
+  box-shadow:0 0 40px #f94211;
+}
+
 .start_btn {
   cursor: pointer;
 }
