@@ -51,7 +51,7 @@
           height: "250",
           renderer: "line",
           min: 0,
-          max: 6,
+          max: 10,
           series: new Rickshaw.Series.FixedDuration([{
             name: 'v1',
             color: '#EC644B'

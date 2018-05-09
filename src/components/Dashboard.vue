@@ -30,7 +30,7 @@
 
           <div class="small-box bg-green">
             <div class="inner">
-              <h3><span class="start_btn">Start</span></h3>
+              <h3><span @click="startBuildTemplate" class="start_btn">Start</span></h3>
 
               <p>Start test measurement</p>
             </div>
@@ -179,24 +179,44 @@ export default {
       this.StressLevelValue = value;
       switch (value) {
         case 0:
-          this.StressClass = "zerolvl";
+          this.StressClass = "zero";
           break;
         case 1:
-          this.StressClass = "firstlvl";
+          this.StressClass = "one";
           break;
         case 2:
-          this.StressClass = "secondlvl";
+          this.StressClass = "two";
           break;
         case 3:
-          this.StressClass = "thirdlvl";
+          this.StressClass = "three";
           break;
         case 4:
-          this.StressClass = "fourthlvl";
+          this.StressClass = "four";
           break;
         case 5:
-          this.StressClass = "fifthlvl";
+          this.StressClass = "five";
+          break;
+        case 6:
+          this.StressClass = "six";
+          break;
+        case 7:
+          this.StressClass = "seven";
+          break;
+        case 8:
+          this.StressClass = "eight";
+          break;
+        case 9:
+          this.StressClass = "nine";
+          break;
+        case 10:
+          this.StressClass = "ten";
           break;
       }
+    },
+    startBuildTemplate() {
+      this.$http.get('http://localhost:8081/template')
+        .then(function (response) {
+        });
     }
   },
   created() {
@@ -223,29 +243,51 @@ body {
   overflow-y: auto;
 }
 
-.zerolvl {
-}
-.firstlvl {
-}
-.secondlvl {
+
+.two {
   -moz-box-shadow:0 0 10px #E5B057;
   -webkit-box-shadow:0 0 10px #E5B057;
   box-shadow:0 0 10px #E5B057;
 }
-.thirdlvl {
-  -moz-box-shadow:0 0 20px #F9A210;
-  -webkit-box-shadow:0 0 20px #F9A210;
-  box-shadow:0 0 20px #F9A210;
+.three {
+  -moz-box-shadow:0 0 10px #F9E435;
+  -webkit-box-shadow:0 0 10px #F9E435;
+  box-shadow:0 0 10px #f9e435;
 }
-.fourthlvl {
-  -moz-box-shadow:0 0 30px #F96F10;
-  -webkit-box-shadow:0 0 30px #F96F10;
-  box-shadow:0 0 30px #F96F10;
+.four {
+  -moz-box-shadow:0 0 20px #F9CF37;
+  -webkit-box-shadow:0 0 20px #F9CF37;
+  box-shadow:0 0 20px #f9cf37;
 }
-.fifthlvl {
-  -moz-box-shadow:0 0 40px #f94211;
-  -webkit-box-shadow:0 0 40px #f94211;
-  box-shadow:0 0 40px #f94211;
+.five {
+  -moz-box-shadow:0 0 30px #F9B033;
+  -webkit-box-shadow:0 0 30px #F9B033;
+  box-shadow:0 0 30px #f9b033;
+}
+.six {
+  -moz-box-shadow:0 0 30px #F99437;
+  -webkit-box-shadow:0 0 30px #F99437;
+  box-shadow:0 0 30px #F99437;
+}
+.seven {
+  -moz-box-shadow:0 0 35px #F97B36;
+  -webkit-box-shadow:0 0 35px #F97B36;
+  box-shadow:0 0 35px #f97b36;
+}
+.eight {
+  -moz-box-shadow:0 0 40px #F96829;
+  -webkit-box-shadow:0 0 40px #F96829;
+  box-shadow:0 0 40px #f96829;
+}
+.nine {
+  -moz-box-shadow:0 0 50px #f94211;
+  -webkit-box-shadow:0 0 50px #f94211;
+  box-shadow:0 0 50px #f94211;
+}
+.ten {
+  -moz-box-shadow:0 0 60px #F91200;
+  -webkit-box-shadow:0 0 60px #F91200;
+  box-shadow:0 0 60px #F91200;
 }
 
 .start_btn {
