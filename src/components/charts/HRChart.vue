@@ -42,7 +42,7 @@
           width: "900",
           height: "250",
           renderer: "line",
-          min: 40,
+          min: 0,
           max: 200,
           series: new Rickshaw.Series.FixedDuration([{
             name: 'v1',
@@ -90,7 +90,7 @@
       },
       fetchData() {
         let _this = this;
-        this.$http.get('http://localhost:8081/data/hr')
+        this.$http.get('http://localhost:8081/api/data/hr')
           .then(function (response) {
             _this.insertData(response.data);
             _this.$emit('update-hr', response.data);

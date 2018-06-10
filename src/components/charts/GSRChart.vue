@@ -42,8 +42,8 @@
           width: "900",
           height: "250",
           renderer: "line",
-          min: 0,
-          max: 60,
+          min: 80,
+          max: 140,
           series: new Rickshaw.Series.FixedDuration([{
             name: 'v1',
             color: '#EC644B'
@@ -90,7 +90,7 @@
       },
       fetchData() {
         let _this = this;
-        this.$http.get('http://localhost:8081/data/gsr')
+        this.$http.get('http://localhost:8081/api/data/gsr')
           .then(function (response) {
             _this.insertData(response.data);
             _this.$emit('update-gsr', response.data)

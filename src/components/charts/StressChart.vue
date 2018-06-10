@@ -98,7 +98,7 @@
       },
       fetchData() {
         let _this = this;
-        this.$http.get('http://localhost:8081/data/stress')
+        this.$http.get('http://localhost:8081/api/data/stress')
           .then(function(response) {
             _this.insertData(response.data);
             _this.$emit('update-stress', response.data)

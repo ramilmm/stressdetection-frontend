@@ -214,7 +214,7 @@ export default {
       }
     },
     startBuildTemplate() {
-      this.$http.get('http://localhost:8081/template')
+      this.$http.get('http://localhost:8081/api/template')
         .then(function (response) {
         });
     }
